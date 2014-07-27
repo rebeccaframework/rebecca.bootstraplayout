@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE 1.0\n"
-"POT-Creation-Date: 2014-07-27 23:31+0900\n"
-"PO-Revision-Date: 2014-07-27 23:34+0900\n"
+"POT-Creation-Date: 2014-07-28 02:06+0900\n"
+"PO-Revision-Date: 2014-07-28 02:08+0900\n"
 "Last-Translator: Atsushi Odagiri <aodagx@gmail.com>\n"
 "Language-Team: Japanese\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,6 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: rebecca/bootstraplayout/constants.py:3
+#: rebecca/bootstrapui/constants.py:3
 msgid "Hello"
 msgstr "こんにちわ"

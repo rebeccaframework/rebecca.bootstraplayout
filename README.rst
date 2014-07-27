@@ -1,3 +1,3 @@
 ==========================
-rebecca.bootstraplayout
+rebecca.bootstrapui
 ==========================
