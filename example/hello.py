@@ -1,4 +1,6 @@
 import os
+from datetime import datetime
+import pytz
 from pyramid.config import Configurator
 from pyramid.view import view_config
 from rebecca.bootstraplayout.resources import (
@@ -9,11 +11,15 @@ from rebecca.bootstraplayout.resources import (
 
 
 here = os.path.dirname(__file__)
+JST = pytz.timezone("Japan")
+UTC = pytz.utc
 
 
 @view_config(renderer="index.mako", layout="main")
 def greeting(request):
-    return dict(message="Hello")
+    utcnow = UTC.localize(datetime.utcnow())
+    now = utcnow.astimezone(JST)
+    return dict(message="<h2>Hello</h2>", now=now, utcnow=utcnow)
 
 
 def main(global_conf, **settings):

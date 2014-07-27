@@ -13,6 +13,7 @@ def includeme(config):
 
     config.scan(".layouts")
     config.scan(".panels")
+    config.scan(".subscribers")
     config.add_static_view("bootstrap-static", "static")
 
 
