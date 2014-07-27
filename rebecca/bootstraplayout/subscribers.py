@@ -4,4 +4,4 @@ from . import helpers
 
 @subscriber("pyramid.events.BeforeRender")
 def register_globals(event):
-    event["h"] = helpers
+    event["h"] = helpers.WebHelper(event['request'])

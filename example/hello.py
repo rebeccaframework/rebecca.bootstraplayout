@@ -8,6 +8,9 @@ from rebecca.bootstraplayout.resources import (
     BreadCrumb,
     BreadCrumbItem,
 )
+from rebecca.bootstraplayout.constants import (
+    message,
+)
 
 
 here = os.path.dirname(__file__)
@@ -18,8 +21,10 @@ UTC = pytz.utc
 @view_config(renderer="index.mako", layout="main")
 def greeting(request):
     utcnow = UTC.localize(datetime.utcnow())
-    now = utcnow.astimezone(JST)
-    return dict(message="<h2>Hello</h2>", now=now, utcnow=utcnow)
+    tz = pytz.timezone(pytz.country_timezones("JP")[0])
+    now = utcnow.astimezone(tz)
+    return dict(message=request.localizer.translate(message),
+                now=now, utcnow=utcnow)
 
 
 def main(global_conf, **settings):
@@ -41,6 +46,9 @@ def main(global_conf, **settings):
     return config.make_wsgi_app()
 
 if __name__ == '__main__':
-    app = main({})
+    settings = {
+        "pyramid.default_locale_name": "ja",
+    }
+    app = main({}, **settings)
     import waitress
     waitress.serve(app, host='0.0.0.0', port=5000)
