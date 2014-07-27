@@ -3,12 +3,12 @@ from datetime import datetime
 import pytz
 from pyramid.config import Configurator
 from pyramid.view import view_config
-from rebecca.bootstraplayout.resources import (
+from rebecca.bootstrapui.resources import (
     PageContext,
     BreadCrumb,
     BreadCrumbItem,
 )
-from rebecca.bootstraplayout.constants import (
+from rebecca.bootstrapui.constants import (
     message,
 )
 
@@ -30,7 +30,7 @@ def greeting(request):
 def main(global_conf, **settings):
     config = Configurator(settings=settings)
     config.include("pyramid_mako")
-    config.include("rebecca.bootstraplayout")
+    config.include("rebecca.bootstrapui")
     page = PageContext(
             title='this is rebecca.bootstrap demo',
             breadcrumb=BreadCrumb(

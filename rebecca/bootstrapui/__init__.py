@@ -10,7 +10,7 @@ def includeme(config):
                               "default_page_context",
                               property=True, reify=True)
     config.add_request_method('.api.get_page_context')
-    config.add_translation_dirs("rebecca.bootstraplayout:locale/")
+    config.add_translation_dirs("rebecca.bootstrapui:locale/")
 
     config.scan(".layouts")
     config.scan(".panels")
