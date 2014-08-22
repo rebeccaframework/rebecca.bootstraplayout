@@ -9,7 +9,11 @@ class IBreadCrumb(Interface):
     items = Attribute(u"list for bread crumb items")
 
 
-class IBreadCrumbItem(Interface):
+class INavigationList(Interface):
+    items = Attribute(u"list for link")
+
+
+class ILinkItem(Interface):
     url = Attribute(u"url for item")
     label = Attribute(u"label for item")
     active = Attribute(u"representation for item state")

@@ -6,7 +6,8 @@ from pyramid.view import view_config
 from rebecca.bootstrapui.resources import (
     PageContext,
     BreadCrumb,
-    BreadCrumbItem,
+    LinkItem,
+    NavigationList,
 )
 from rebecca.bootstrapui.constants import (
     message,
@@ -32,15 +33,20 @@ def main(global_conf, **settings):
     config.include("pyramid_mako")
     config.include("rebecca.bootstrapui")
     page = PageContext(
-            title='this is rebecca.bootstrap demo',
-            breadcrumb=BreadCrumb(
-                items=[
-                    BreadCrumbItem(label='HOME', url="#"),
-                    BreadCrumbItem(label='Library', url="#"),
-                    BreadCrumbItem(label='Data', active=True),
-                    ]
-                ),
-            )
+        title='this is rebecca.bootstrap demo',
+        breadcrumb=BreadCrumb(
+            items=[
+                LinkItem(label='HOME', url="#"),
+                LinkItem(label='Library', url="#"),
+                LinkItem(label='Data', active=True),
+            ]),
+        sidemenu=NavigationList(
+            items=[
+                LinkItem(label='HOME', url="#"),
+                LinkItem(label='Library', url="#"),
+                LinkItem(label='Data', active=True),
+            ])
+        )
     config.set_default_page_context(page)
     config.scan(".")
     return config.make_wsgi_app()

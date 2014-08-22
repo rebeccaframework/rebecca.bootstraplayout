@@ -12,3 +12,9 @@ def page_header_panel(context, request):
               renderer="templates/panels/breadcrumb.mako")
 def breadcrumb_panel(conext, request, breadcrumb):
     return dict(breadcrumb=breadcrumb)
+
+
+@panel_config(name="navigationlist",
+              renderer="templates/panels/navigationlist.mako")
+def navigationlist_panel(context, request, navigationlist):
+    return dict(navigationlist=navigationlist)
