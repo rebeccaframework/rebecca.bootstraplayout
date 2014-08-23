@@ -16,5 +16,7 @@ ${panel('breadcrumb', breadcrumb=layout.page_context.breadcrumb)}
     ${h.format_datetime(utcnow, format="full")}
     <p>
     ${utcnow.strftime("%Y-%m-%d %H:%M:%S %Z%z")}
+
+    ${panel('panel', news_panel)}
   </div>
 </div>

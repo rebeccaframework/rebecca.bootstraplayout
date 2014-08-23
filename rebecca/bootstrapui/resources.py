@@ -4,6 +4,7 @@ from .interfaces import (
     IBreadCrumb,
     INavigationList,
     ILinkItem,
+    IPanel,
 )
 
 
@@ -33,3 +34,11 @@ class LinkItem(object):
         self.url = url
         self.label = label
         self.active = active
+
+
+@implementer(IPanel)
+class Panel(object):
+    def __init__(self, contents, heading=None, footer=None):
+        self.contents = contents
+        self.heading = heading
+        self.footer = footer

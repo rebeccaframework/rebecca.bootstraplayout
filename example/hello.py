@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
 import pytz
+from webhelpers2.html import literal
 from pyramid.config import Configurator
 from pyramid.view import view_config
 from rebecca.bootstrapui.resources import (
@@ -8,6 +9,7 @@ from rebecca.bootstrapui.resources import (
     BreadCrumb,
     LinkItem,
     NavigationList,
+    Panel,
 )
 from rebecca.bootstrapui.constants import (
     message,
@@ -24,8 +26,13 @@ def greeting(request):
     utcnow = UTC.localize(datetime.utcnow())
     tz = pytz.timezone(pytz.country_timezones("JP")[0])
     now = utcnow.astimezone(tz)
+
+    news_panel = Panel("news here",
+                       heading=literal('<h3 class="panel-title">News</h3>'),
+                       )
     return dict(message=request.localizer.translate(message),
-                now=now, utcnow=utcnow)
+                now=now, utcnow=utcnow,
+                news_panel=news_panel)
 
 
 def main(global_conf, **settings):

@@ -18,3 +18,9 @@ def breadcrumb_panel(conext, request, breadcrumb):
               renderer="templates/panels/navigationlist.mako")
 def navigationlist_panel(context, request, navigationlist):
     return dict(navigationlist=navigationlist)
+
+
+@panel_config(name="panel",
+              renderer="templates/panels/panel.mako")
+def panel_panel(context, request, panel, panel_style="panel-default"):
+    return dict(panel=panel, panel_style=panel_style)
